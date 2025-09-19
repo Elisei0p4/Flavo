@@ -1,0 +1,82 @@
+[
+{
+  "model": "recipes.recipetag",
+  "pk": 1,
+  "fields": {
+    "name": "Тег Рецепта 0",
+    "slug": "teg-retsepta-0"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 2,
+  "fields": {
+    "name": "Тег Рецепта 1",
+    "slug": "teg-retsepta-1"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 3,
+  "fields": {
+    "name": "Тег Рецепта 2",
+    "slug": "teg-retsepta-2"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 4,
+  "fields": {
+    "name": "Тег Рецепта 3",
+    "slug": "teg-retsepta-3"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 5,
+  "fields": {
+    "name": "Тег Рецепта 4",
+    "slug": "teg-retsepta-4"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 6,
+  "fields": {
+    "name": "Тег Рецепта 5",
+    "slug": "teg-retsepta-5"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 7,
+  "fields": {
+    "name": "Тег Рецепта 6",
+    "slug": "teg-retsepta-6"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 8,
+  "fields": {
+    "name": "Тег Рецепта 7",
+    "slug": "teg-retsepta-7"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 9,
+  "fields": {
+    "name": "Тег Рецепта 8",
+    "slug": "teg-retsepta-8"
+  }
+},
+{
+  "model": "recipes.recipetag",
+  "pk": 10,
+  "fields": {
+    "name": "Тег Рецепта 9",
+    "slug": "teg-retsepta-9"
+  }
+}
+]

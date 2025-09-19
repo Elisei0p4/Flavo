@@ -1,0 +1,422 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "Курица по-французски с картофелем",
+    "slug": "kuritsa-po-frantsuzski-s-kartofelem",
+    "description": "Легкий и освежающий вариант для обеда или ужина. Сочетание хрустящих овощей и ароматных трав придаст энергии на весь день.",
+    "ingredients": "Western day maintain.",
+    "chef_recommendation": "Moment inside above prepare training.",
+    "price": "783.09",
+    "image": "products/изображение_2025-09-19_220136947.png",
+    "sku": "FLV-FF3C0A9419B54FBFAD114B6B73CCE3CB",
+    "stock": 90,
+    "is_featured": false,
+    "category": 1,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "Говядина Бургиньон",
+    "slug": "goviadina-burginon",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Could onto meet.",
+    "chef_recommendation": "Seven fear sister dog receive her.",
+    "price": "991.05",
+    "image": "products/изображение_2025-09-19_220534514.png",
+    "sku": "FLV-0017CB325FF64F99A4C0BA7925489E5E",
+    "stock": 39,
+    "is_featured": false,
+    "category": 1,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Утиная грудка с вишневым соусом",
+    "slug": "utinaia-grudka-s-vishnevym-sousom",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Authority across put nice attorney.",
+    "chef_recommendation": "Big film experience light control building wear part.",
+    "price": "559.48",
+    "image": "products/изображение_2025-09-19_220603957.png",
+    "sku": "FLV-6AE59C3765A9402BAFA3D40F0AA399F0",
+    "stock": 84,
+    "is_featured": true,
+    "category": 1,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Рыба в соусе Нантуа",
+    "slug": "ryba-v-souse-nantua",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Then anyone billion poor admit.",
+    "chef_recommendation": "Direction range official finish produce reduce.",
+    "price": "723.83",
+    "image": "products/изображение_2025-09-19_221910636.png",
+    "sku": "FLV-E631C344A940407182002A434AC89BA4",
+    "stock": 87,
+    "is_featured": false,
+    "category": 1,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Рататуй по-провансальски",
+    "slug": "ratatui-po-provansalski",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Skin statement article trade process leave.",
+    "chef_recommendation": "Artist we trial executive.",
+    "price": "177.60",
+    "image": "products/изображение_2025-09-19_221855347.png",
+    "sku": "FLV-6457937946584F22BB8DA8FB303BE734",
+    "stock": 58,
+    "is_featured": false,
+    "category": 1,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Салат Нисуаз",
+    "slug": "salat-nisuaz",
+    "description": "Изысканное блюдо, приготовленное по традиционным рецептам с использованием только свежайших ингредиентов. Насыщенный вкус и нежная текстура порадуют даже самых взыскательных гурманов.",
+    "ingredients": "Right civil friend heavy buy section.",
+    "chef_recommendation": "Way community example energy individual.",
+    "price": "374.15",
+    "image": "products/изображение_2025-09-19_221840810.png",
+    "sku": "FLV-7CD7350E85DA4A519D34DEC12FA23364",
+    "stock": 67,
+    "is_featured": true,
+    "category": 2,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Зеленый салат с козьим сыром",
+    "slug": "zelenyi-salat-s-kozim-syrom",
+    "description": "Изысканное блюдо, приготовленное по традиционным рецептам с использованием только свежайших ингредиентов. Насыщенный вкус и нежная текстура порадуют даже самых взыскательных гурманов.",
+    "ingredients": "Police discuss would market north would protect.",
+    "chef_recommendation": "Here newspaper prepare attention.",
+    "price": "379.51",
+    "image": "products/изображение_2025-09-19_221704644_wTuqKyv.png",
+    "sku": "FLV-93E1C932E33441F0AA9D4C65509E5F2D",
+    "stock": 78,
+    "is_featured": true,
+    "category": 2,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Салат с уткой конфи",
+    "slug": "salat-s-utkoi-konfi",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Stuff wide sure.",
+    "chef_recommendation": "Allow my play discuss entire often.",
+    "price": "527.97",
+    "image": "products/изображение_2025-09-19_221629275.png",
+    "sku": "FLV-97E73ABDDB4E4E948B8B4E20970F71DE",
+    "stock": 36,
+    "is_featured": false,
+    "category": 2,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "name": "Салат Цезарь по-французски",
+    "slug": "salat-tsezar-po-frantsuzski",
+    "description": "Классический французский десерт, который растопит ваше сердце. Нежная текстура и богатый вкус делают его идеальным завершением трапезы.",
+    "ingredients": "Congress drop community.",
+    "chef_recommendation": "Occur water since when book move education.",
+    "price": "750.43",
+    "image": "products/изображение_2025-09-19_221614935.png",
+    "sku": "FLV-63F67DA5B2E947CFB7D6777FCADB0682",
+    "stock": 77,
+    "is_featured": false,
+    "category": 2,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "name": "Крем-брюле",
+    "slug": "krem-briule",
+    "description": "Легкий и освежающий вариант для обеда или ужина. Сочетание хрустящих овощей и ароматных трав придаст энергии на весь день.",
+    "ingredients": "Thing quickly seat establish character.",
+    "chef_recommendation": "Site life surface.",
+    "price": "607.11",
+    "image": "products/изображение_2025-09-19_221558344.png",
+    "sku": "FLV-A9A69016325547A89FD92D354C635172",
+    "stock": 39,
+    "is_featured": false,
+    "category": 3,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "name": "Шоколадный фондан",
+    "slug": "shokoladnyi-fondan",
+    "description": "Отличный выбор для быстрого перекуса или как дополнение к основному блюду. Простой в приготовлении, но насыщенный вкус.",
+    "ingredients": "Other fall not recent.",
+    "chef_recommendation": "Must owner here single make.",
+    "price": "463.40",
+    "image": "products/изображение_2025-09-19_221543397.png",
+    "sku": "FLV-8C83E23C8B3B45CF91F2FC97C22FF4BD",
+    "stock": 43,
+    "is_featured": false,
+    "category": 3,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "name": "Тарт Татен",
+    "slug": "tart-taten",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Truth whom message.",
+    "chef_recommendation": "Us dinner information political special.",
+    "price": "991.93",
+    "image": "products/изображение_2025-09-19_221526894.png",
+    "sku": "FLV-4080668875D748069A253316E705AE65",
+    "stock": 32,
+    "is_featured": true,
+    "category": 3,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "Мильфей с ягодами",
+    "slug": "milfei-s-iagodami",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Visit tree person there sound quality.",
+    "chef_recommendation": "End produce or pass man.",
+    "price": "204.89",
+    "image": "products/изображение_2025-09-19_221459058.png",
+    "sku": "FLV-AA79C072A0D5497F8DC7A22370B0A316",
+    "stock": 93,
+    "is_featured": false,
+    "category": 3,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Профитроли со сливками",
+    "slug": "profitroli-so-slivkami",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Enough price become Republican yard structure almost.",
+    "chef_recommendation": "Source hold soon article.",
+    "price": "300.59",
+    "image": "products/изображение_2025-09-19_221444574.png",
+    "sku": "FLV-3D9DA94465DD435E964BE416D5363FDF",
+    "stock": 17,
+    "is_featured": true,
+    "category": 3,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "name": "Фуа-гра с джемом",
+    "slug": "fua-gra-s-dzhemom",
+    "description": "Классический французский десерт, который растопит ваше сердце. Нежная текстура и богатый вкус делают его идеальным завершением трапезы.",
+    "ingredients": "Who piece eat.",
+    "chef_recommendation": "Provide not threat table the example policy.",
+    "price": "595.91",
+    "image": "products/изображение_2025-09-19_221427377.png",
+    "sku": "FLV-8609C0894C774012861710226534D718",
+    "stock": 59,
+    "is_featured": true,
+    "category": 4,
+    "tags": [],
+    "collections": [
+      27
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "name": "Устрицы с соусом миньонет",
+    "slug": "ustritsy-s-sousom-minonet",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Relationship sign quality consider capital.",
+    "chef_recommendation": "Hot worker fire let change view bit.",
+    "price": "429.85",
+    "image": "products/изображение_2025-09-19_221300607.png",
+    "sku": "FLV-04008412530940F7B61D833C81692C22",
+    "stock": 55,
+    "is_featured": false,
+    "category": 4,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "name": "Сырная тарелка",
+    "slug": "syrnaia-tarelka",
+    "description": "Легкий и освежающий вариант для обеда или ужина. Сочетание хрустящих овощей и ароматных трав придаст энергии на весь день.",
+    "ingredients": "Bank word their tend.",
+    "chef_recommendation": "Spring indicate room though subject.",
+    "price": "583.98",
+    "image": "products/изображение_2025-09-19_221240938.png",
+    "sku": "FLV-A1A60884D9F24CF4A8B300F7929BD7F7",
+    "stock": 89,
+    "is_featured": true,
+    "category": 4,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "name": "Тартар из лосося",
+    "slug": "tartar-iz-lososia",
+    "description": "Классический французский десерт, который растопит ваше сердце. Нежная текстура и богатый вкус делают его идеальным завершением трапезы.",
+    "ingredients": "Claim we dog color provide.",
+    "chef_recommendation": "His voice finally article contain great.",
+    "price": "113.72",
+    "image": "products/изображение_2025-09-19_221221628.png",
+    "sku": "FLV-DD36ABAC665F43F0BFEFC436A9CA51C3",
+    "stock": 22,
+    "is_featured": false,
+    "category": 4,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "name": "Французский луковый суп",
+    "slug": "frantsuzskii-lukovyi-sup",
+    "description": "Классический французский десерт, который растопит ваше сердце. Нежная текстура и богатый вкус делают его идеальным завершением трапезы.",
+    "ingredients": "Police win kid not stay western attorney.",
+    "chef_recommendation": "Democrat store imagine window trip.",
+    "price": "508.98",
+    "image": "products/изображение_2025-09-19_221202404.png",
+    "sku": "FLV-8F073804DE734EE2983B0C880DD21F5C",
+    "stock": 51,
+    "is_featured": false,
+    "category": 5,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "name": "Крем-суп из шампиньонов",
+    "slug": "krem-sup-iz-shampinonov",
+    "description": "Отличный выбор для быстрого перекуса или как дополнение к основному блюду. Простой в приготовлении, но насыщенный вкус.",
+    "ingredients": "Watch base standard base.",
+    "chef_recommendation": "A long executive conference.",
+    "price": "539.98",
+    "image": "products/изображение_2025-09-19_220750115.png",
+    "sku": "FLV-5F9C410DB30842C7B8EEC59E03271E1A",
+    "stock": 95,
+    "is_featured": false,
+    "category": 5,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "name": "Буйабес",
+    "slug": "buiabes",
+    "description": "Классический французский десерт, который растопит ваше сердце. Нежная текстура и богатый вкус делают его идеальным завершением трапезы.",
+    "ingredients": "Add most voice accept.",
+    "chef_recommendation": "Today life common court human.",
+    "price": "329.55",
+    "image": "products/изображение_2025-09-19_220732945.png",
+    "sku": "FLV-72C72A7FE8AB419DBBAE825DB919B62C",
+    "stock": 18,
+    "is_featured": false,
+    "category": 5,
+    "tags": [],
+    "collections": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "name": "Суп-пюре из брокколи",
+    "slug": "sup-piure-iz-brokkoli",
+    "description": "Авторское блюдо от нашего шеф-повара. Уникальное сочетание ингредиентов и оригинальная подача сделают ваш ужин незабываемым.",
+    "ingredients": "Eight different poor open black.",
+    "chef_recommendation": "Nothing very indicate.",
+    "price": "702.37",
+    "image": "products/изображение_2025-09-19_220713809.png",
+    "sku": "FLV-8D6B921D013143F79803722CEA6C9E74",
+    "stock": 45,
+    "is_featured": true,
+    "category": 5,
+    "tags": [],
+    "collections": []
+  }
+}
+]

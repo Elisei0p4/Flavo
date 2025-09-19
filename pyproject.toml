@@ -1,0 +1,27 @@
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "C90", "I", "N", "D", "UP", "B", "A", "S", "T"]
+ignore = ["D203", "D212", "D213", "D407", "D416"]
+
+[tool.ruff.per-file-ignores]
+"**/migrations/*.py" = ["D"]
+"**/tests/*.py" = ["S101", "D"]
+"manage.py" = ["D"]
+"**/settings/*.py" = ["D"]
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+python_version = "3.11"
+
+[tool.django-stubs]
+django_settings_module = "pizza_project.settings.local"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "pizza_project.settings.local"
+python_files = "tests.py test_*.py *_tests.py"
+asyncio_mode = "auto"
+addopts = "--cov-report=term-missing --cov=."

@@ -1,0 +1,12 @@
+---
+production:
+  hosts:
+    pizza-prod-server:
+      ansible_host: "{{ prod_host }}"
+      ansible_user: "{{ prod_user }}"
+      ansible_ssh_private_key_file: "{{ prod_ssh_key_path }}"
+      ansible_port: "{{ prod_port | default(22) }}"
+  vars:
+    github_repository: "{{ github_repository }}"
+    github_actor: "{{ github_actor }}"
+    github_token: "{{ github_token }}"

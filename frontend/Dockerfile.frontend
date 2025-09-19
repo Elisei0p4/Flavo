@@ -1,0 +1,19 @@
+FROM node:20-alpine
+
+# Устанавливаем рабочую директорию внутри контейнера
+WORKDIR /app
+
+# Копируем package.json и package-lock.json (или yarn.lock и т.д.)
+COPY package*.json ./
+
+# Устанавливаем зависимости проекта, включая devDependencies
+RUN npm install --force --no-cache-dir
+
+# Копируем все остальные файлы проекта в рабочую директорию
+COPY . .
+
+# Открываем порт, на котором Vite запускает сервер разработки
+EXPOSE 5173
+
+# Команда для запуска сервера разработки Vite
+CMD ["npm", "run", "dev", "--", "--host", "--open", "--mode", "development"]

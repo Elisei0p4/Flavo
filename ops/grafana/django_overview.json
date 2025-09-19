@@ -1,0 +1,38 @@
+{
+  "__inputs": [],
+  "title": "Django Overview",
+  "editable": true,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Requests per second",
+      "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+      "targets": [{"expr": "sum(rate(django_http_requests_before_middlewares_total[5m]))"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "Errors (5xx) per second",
+      "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8},
+      "targets": [{"expr": "sum(rate(django_http_responses_total{status=~\"5..\"}[5m]))"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "Response latency (p95)",
+      "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+      "targets": [{"expr": "histogram_quantile(0.95, sum(rate(django_http_request_duration_seconds_bucket[5m])) by (le))"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "DB connections",
+      "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8},
+      "targets": [{"expr": "sum(pg_stat_activity_count)"}],
+      "datasource": null
+    }
+  ],
+  "schemaVersion": 38,
+  "version": 1
+}
+
+
+
+

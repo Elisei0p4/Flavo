@@ -1,0 +1,260 @@
+---
+- name: Deploy Pizza Project to Production
+  hosts: production
+  become: yes
+  vars:
+    app_name: pizza-project
+    app_dir: /opt/{{ app_name }}
+    docker_compose_file: docker-compose.prod.yml
+    registry: ghcr.io
+    image_name: "{{ github_repository | default('pizza-project') }}"
+
+
+    SECRET_KEY: "{{ vault_secret_key }}"
+    DOMAIN_NAME: "{{ lookup('env', 'PROD_DOMAIN_NAME') | default('your.domain.com') }}"
+    POSTGRES_DB: "{{ lookup('env', 'PROD_POSTGRES_DB') | default('pizza_db_prod') }}"
+    POSTGRES_USER: "{{ lookup('env', 'PROD_POSTGRES_USER') | default('pizza_user_prod') }}"
+    POSTGRES_PASSWORD: "{{ vault_postgres_password }}"
+    POSTGRES_HOST: "{{ lookup('env', 'PROD_POSTGRES_HOST') | default('db') }}"
+    POSTGRES_PORT: "{{ lookup('env', 'PROD_POSTGRES_PORT') | default(5432) }}"
+    REDIS_HOST: "{{ lookup('env', 'PROD_REDIS_HOST') | default('redis') }}"
+    REDIS_PORT: "{{ lookup('env', 'PROD_REDIS_PORT') | default(6379) }}"
+    RABBITMQ_DEFAULT_USER: "{{ lookup('env', 'PROD_RABBITMQ_USER') | default('pizza_mq_prod_user') }}"
+    RABBITMQ_DEFAULT_PASS: "{{ vault_rabbitmq_password }}"
+    RABBITMQ_HOST: "{{ lookup('env', 'PROD_RABBITMQ_HOST') | default('rabbitmq') }}"
+    RABBITMQ_PORT: "{{ lookup('env', 'PROD_RABBITMQ_PORT') | default(5672) }}"
+    STRIPE_PUBLISHABLE_KEY: "{{ lookup('env', 'PROD_STRIPE_PUBLISHABLE_KEY') | default('pk_live_...') }}"
+    STRIPE_SECRET_KEY: "{{ vault_stripe_secret_key }}"
+    STRIPE_WEBHOOK_SECRET: "{{ vault_stripe_webhook_secret }}"
+
+  tasks:
+    - name: Check if Docker is installed
+      command: docker --version
+      register: docker_is_installed
+      ignore_errors: yes
+
+    - name: Update system packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_os_family == "Debian"
+
+    - name: Install Docker dependencies
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+        state: present
+      when: ansible_os_family == "Debian" and docker_is_installed.rc != 0
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      when: ansible_os_family == "Debian" and docker_is_installed.rc != 0
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        state: present
+      when: ansible_os_family == "Debian" and docker_is_installed.rc != 0
+
+    - name: Install Docker
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: present
+      when: ansible_os_family == "Debian" and not docker_is_installed.rc == 0
+
+    - name: Start and enable Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+      when: not docker_is_installed.rc == 0
+
+    - name: Add user to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+
+
+    - name: Install Certbot
+      apt:
+        name:
+          - certbot
+          - python3-certbot-nginx
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Create Let's Encrypt directory
+      file:
+        path: /etc/letsencrypt
+        state: directory
+        mode: '0755'
+
+    - name: Create renewal script directory
+      file:
+        path: /etc/letsencrypt/renewal-hooks/deploy
+        state: directory
+        mode: '0755'
+
+    - name: Create Nginx reload script for certificate renewal
+      copy:
+        content: |
+          #!/bin/bash
+          # Reload Nginx after certificate renewal
+          docker-compose -f {{ app_dir }}/{{ docker_compose_file }} exec -T nginx nginx -s reload
+        dest: /etc/letsencrypt/renewal-hooks/deploy/nginx-reload.sh
+        mode: '0755'
+
+    - name: Create cron job for automatic certificate renewal
+      cron:
+        name: "Certbot renewal"
+        job: "0 12 * * * /usr/bin/certbot renew --quiet --deploy-hook /etc/letsencrypt/renewal-hooks/deploy/nginx-reload.sh"
+        user: root
+
+    - name: Check if SSL certificate exists
+      stat:
+        path: "/etc/letsencrypt/live/{{ DOMAIN_NAME }}/fullchain.pem"
+      register: ssl_certificate_exists
+
+    - name: Obtain SSL certificate
+      command: >
+        certbot certonly 
+        --nginx 
+        --non-interactive 
+        --agree-tos 
+        --email admin@{{ DOMAIN_NAME }}
+        -d {{ DOMAIN_NAME }}
+        --keep-until-expiring
+      when: not ssl_certificate_exists.stat.exists
+      register: certbot_result
+      ignore_errors: yes
+
+    - name: Display certificate status
+      debug:
+        msg: "SSL certificate status: {{ 'Obtained' if ssl_certificate_exists.stat.exists else 'Failed to obtain' }}"
+
+    - name: Create application directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+
+    - name: Copy environment file from template
+      template:
+        src: .env.prod.j2
+        dest: "{{ app_dir }}/.env.prod"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0600'
+
+    - name: Copy docker-compose file from template
+      template:
+        src: docker-compose.prod.yml.j2
+        dest: "{{ app_dir }}/{{ docker_compose_file }}"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: Login to GitHub Container Registry
+      docker_login:
+        registry: "{{ registry }}"
+        username: "{{ github_actor }}"
+        password: "{{ github_token }}"
+
+    - name: Pull latest images
+      docker_compose:
+        project_src: "{{ app_dir }}"
+        files:
+          - "{{ docker_compose_file }}"
+        pull: yes
+        state: present
+
+    - name: Stop existing containers
+      docker_compose:
+        project_src: "{{ app_dir }}"
+        files:
+          - "{{ docker_compose_file }}"
+        state: absent
+
+    - name: Start application
+      docker_compose:
+        project_src: "{{ app_dir }}"
+        files:
+          - "{{ docker_compose_file }}"
+        state: present
+        recreate: always
+
+    - name: Clean up unused Docker images
+      shell: docker system prune -f
+      become_user: "{{ ansible_user }}"
+
+
+    - name: Wait for application to be ready
+      wait_for:
+        port: 80
+        host: localhost
+        delay: 10
+        timeout: 60
+
+    - name: Verify backend health check
+      uri:
+        url: "http://localhost/api/v1/health/"
+        method: GET
+        status_code: 200
+      retries: 5
+      delay: 10
+      register: backend_health
+
+    - name: Verify frontend accessibility
+      uri:
+        url: "http://localhost/"
+        method: GET
+        status_code: 200
+      retries: 3
+      delay: 5
+      register: frontend_health
+
+    - name: Verify admin panel accessibility
+      uri:
+        url: "http://localhost/admin/"
+        method: GET
+        status_code: 200
+      retries: 3
+      delay: 5
+      register: admin_health
+
+    - name: Test API endpoint functionality
+      uri:
+        url: "http://localhost/api/v1/products/"
+        method: GET
+        status_code: 200
+      retries: 3
+      delay: 5
+      register: api_health
+
+    - name: Display smoke test results
+      debug:
+        msg: |
+          Smoke Test Results:
+          - Backend Health: {{ 'PASS' if backend_health.status == 200 else 'FAIL' }}
+          - Frontend: {{ 'PASS' if frontend_health.status == 200 else 'FAIL' }}
+          - Admin Panel: {{ 'PASS' if admin_health.status == 200 else 'FAIL' }}
+          - API Endpoints: {{ 'PASS' if api_health.status == 200 else 'FAIL' }}
+
+    - name: Fail deployment if critical tests fail
+      fail:
+        msg: "Critical smoke tests failed. Deployment may be unstable."
+      when: 
+        - backend_health.status != 200
+        - frontend_health.status != 200

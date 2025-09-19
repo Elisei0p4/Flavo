@@ -1,0 +1,12 @@
+[
+{
+  "model": "products.collection",
+  "pk": 27,
+  "fields": {
+    "name": "Лето, солнце и пицца!",
+    "description": "Лучшая еда для лета",
+    "image": "collections/full-parchment-bg.png",
+    "slug": "leto-solnce-i-picca"
+  }
+}
+]

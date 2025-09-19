@@ -1,0 +1,51 @@
+name: Deploy with Ansible
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+        - production
+        - staging
+
+jobs:
+  deploy:
+    name: Deploy with Ansible
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Ansible
+        run: |
+          pip install ansible
+          ansible-galaxy install -r ansible/requirements.yml
+      
+      - name: Create SSH key file
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PROD_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.PROD_HOST }} >> ~/.ssh/known_hosts
+      
+      - name: Deploy with Ansible
+        run: |
+          ansible-playbook -i ansible/inventory.yml ansible/deploy.yml \
+            -e github_repository="${{ github.repository }}" \
+            -e github_actor="${{ github.actor }}" \
+            -e github_token="${{ secrets.GITHUB_TOKEN }}" \
+            -e prod_host="${{ secrets.PROD_HOST }}" \
+            -e prod_user="${{ secrets.PROD_USER }}" \
+            -e prod_ssh_key_path="~/.ssh/id_rsa" \
+            -e prod_port="${{ secrets.PROD_PORT }}"

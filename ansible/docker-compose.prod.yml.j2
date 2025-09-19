@@ -1,0 +1,141 @@
+services:
+  db:
+    image: postgres:14.0-alpine
+    container_name: flavo_db_prod
+    volumes:
+      - postgres_data_prod:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.prod
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: flavo_redis_prod
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    container_name: flavo_rabbitmq_prod
+    env_file:
+      - ./.env.prod
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  backend-migrate:
+    image: {{ image_name }}-backend:prod
+    container_name: flavo_backend_migrate_prod
+    command: >
+      sh -c "
+        echo 'Applying database migrations...' &&
+        python manage.py migrate --noinput &&
+        echo 'Collecting static files...' &&
+        python manage.py collectstatic --noinput --clear
+      "
+    env_file:
+      - ./.env.prod
+    environment:
+      - DJANGO_SETTINGS_MODULE=pizza_project.settings.production
+    volumes:
+      - static_volume_prod:/app/staticfiles
+      - media_volume_prod:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+
+  backend:
+    image: {{ image_name }}-backend:prod
+    container_name: flavo_backend_prod
+    entrypoint: /app/entrypoint.prod.sh
+    command: gunicorn --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 pizza_project.asgi:application
+    volumes:
+      - static_volume_prod:/app/staticfiles
+      - media_volume_prod:/app/media
+    env_file:
+      - ./.env.prod
+    environment:
+      - DJANGO_SETTINGS_MODULE=pizza_project.settings.production
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      backend-migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    expose:
+      - 8000
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first # Start new container before stopping old one
+
+  nginx:
+    image: {{ image_name }}-nginx:prod
+    container_name: flavo_nginx_prod
+    environment:
+      - DOMAIN_NAME={{ DOMAIN_NAME }}
+    volumes:
+      - static_volume_prod:/app/staticfiles
+      - media_volume_prod:/app/media
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      backend:
+        condition: service_healthy
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first # Start new container before stopping old one
+      
+  celery_worker:
+    image: {{ image_name }}-backend:prod
+    container_name: flavo_celery_worker_prod
+    command: celery -A pizza_project worker -l info
+    volumes:
+      - media_volume_prod:/app/media
+    env_file:
+      - ./.env.prod
+    environment:
+      - DJANGO_SETTINGS_MODULE=pizza_project.settings.production
+    depends_on:
+      backend:
+        condition: service_started
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  postgres_data_prod:
+  static_volume_prod:
+  media_volume_prod:

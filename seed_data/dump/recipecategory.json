@@ -1,0 +1,47 @@
+[
+{
+  "model": "recipes.recipecategory",
+  "pk": 1,
+  "fields": {
+    "name": "Завтраки",
+    "slug": "zavtraki",
+    "icon": "recipe_category_icons/icon-leon.png"
+  }
+},
+{
+  "model": "recipes.recipecategory",
+  "pk": 2,
+  "fields": {
+    "name": "Первые блюда",
+    "slug": "pervye-bliuda",
+    "icon": "recipe_category_icons/3_fleur_de_lis.webp"
+  }
+},
+{
+  "model": "recipes.recipecategory",
+  "pk": 3,
+  "fields": {
+    "name": "Вторые блюда",
+    "slug": "vtorye-bliuda",
+    "icon": "recipe_category_icons/icon-circle.png"
+  }
+},
+{
+  "model": "recipes.recipecategory",
+  "pk": 4,
+  "fields": {
+    "name": "Десерты и выпечка",
+    "slug": "deserty-i-vypechka",
+    "icon": "recipe_category_icons/icon-heart.png"
+  }
+},
+{
+  "model": "recipes.recipecategory",
+  "pk": 5,
+  "fields": {
+    "name": "Напитки",
+    "slug": "napitki",
+    "icon": "recipe_category_icons/icon-peak.png"
+  }
+}
+]

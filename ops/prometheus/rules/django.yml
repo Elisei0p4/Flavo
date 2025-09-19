@@ -1,0 +1,49 @@
+groups:
+  - name: django
+    rules:
+      - alert: DjangoHighErrorRate
+        expr: rate(django_http_requests_total{status=~"5.."}[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate in Django application"
+          description: "Django application has error rate of {{ $value }} errors per second"
+
+      - alert: DjangoHighResponseTime
+        expr: histogram_quantile(0.95, rate(django_http_request_duration_seconds_bucket[5m])) > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High response time in Django application"
+          description: "95th percentile response time is {{ $value }} seconds"
+
+      - alert: DjangoDatabaseConnections
+        expr: django_db_connections_total > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High database connection count"
+          description: "Database connections: {{ $value }}"
+
+  - name: celery
+    rules:
+      - alert: CeleryTaskFailureRate
+        expr: rate(celery_tasks_total{state="FAILURE"}[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High Celery task failure rate"
+          description: "Celery task failure rate: {{ $value }} failures per second"
+
+      - alert: CeleryQueueLength
+        expr: celery_queue_length > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Long Celery queue"
+          description: "Celery queue length: {{ $value }} tasks"

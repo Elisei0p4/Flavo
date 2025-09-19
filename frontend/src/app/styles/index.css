@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-main-dark text-text-light font-body antialiased;
+    overscroll-behavior: none;
+  }
+
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+  body::-webkit-scrollbar-track {
+    background: #333;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+    border: 1px solid #444;
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .vintage-image-frame {
+    border-style: solid;
+    border-width: 40px;
+    border-image-source: url('/ramka.png');
+    border-image-slice: 115 fill;
+    border-image-repeat: repeat;
+    background-color: transparent;
+  }
+
+
+
+  .page-container {
+    @apply max-w-6xl mx-auto px-4;
+  }
+  
+  .section-divider-top {
+    @apply relative -mt-1 h-24 w-full bg-main-dark bg-dark-engraving bg-cover bg-center; /* Темный фон */
+    mask-image: url('/torn-paper-top.svg');
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: url('/torn-paper-top.svg');
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .section-divider-bottom {
+    @apply relative -mb-1 h-24 w-full bg-main-dark bg-dark-engraving bg-cover bg-center; /* Темный фон */
+    mask-image: url('/torn-paper-bottom.svg');
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: url('/torn-paper-bottom.svg');
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .btn-vintage-primary {
+    @apply inline-flex items-center justify-center font-heading text-lg px-8 py-3 bg-accent-gold text-main-dark transition-all duration-300 hover:bg-hover-gold focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-main-dark;
+  }
+
+  .btn-vintage-secondary {
+    @apply inline-flex items-center justify-center font-heading text-lg px-8 py-3 border-2 border-accent-gold text-accent-gold transition-all duration-300 hover:bg-accent-gold hover:text-main-dark focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-main-dark;
+  }
+  
+  .vintage-card {
+    @apply bg-main-light text-text-dark border border-main-dark/20 p-6 shadow-card-shadow;
+  }
+
+  .vintage-card-dark {
+    @apply relative bg-main-dark/90 text-text-light p-6 shadow-inner-dark overflow-hidden px-4 sm:px-6 md:px-8;
+    border-color: rgba(181, 146, 79, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .vintage-card-dark:hover {
+    border-color: rgba(181, 146, 79, 0.6);
+    box-shadow: 0 0 15px rgba(181, 146, 79, 0.3);
+  }
+
+  .vintage-card-dark::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-[10px] pointer-events-none z-10;
+    background-image: url('/Border-gorizont.png'); 
+    background-repeat: repeat-x; 
+    background-size: auto 10px; 
+  }
+
+  .vintage-card-dark::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[10px] pointer-events-none z-10;
+    background-image: url('/Border-gorizont.png'); 
+    background-repeat: repeat-x; 
+    background-size: auto 10px; 
+  }
+
+  .nav-item {
+    @apply relative text-text-light hover:text-hover-gold font-heading text-lg transition-colors duration-200 py-2;
+  }
+  .nav-item.active {
+    @apply text-accent-gold;
+  }
+  .nav-item::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[2px] bg-accent-gold scale-x-0 transition-transform duration-200;
+  }
+  .nav-item.active::after,
+  .nav-item:hover::after {
+    @apply scale-x-100;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

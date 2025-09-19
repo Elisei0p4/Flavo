@@ -1,0 +1,50 @@
+# Енвэшки
+.env
+.env.*
+!.env.example
+!.env.prod.example
+.env.prod
+.env.local
+
+# Джунгоу
+__pycache__/
+*.pyc
+/staticfiles/
+/media/
+db.sqlite3
+db.sqlite3-journal
+
+# Питон
+*.log
+*.pot
+*.pyo
+.pytest_cache/
+.coverage
+/instance/
+pip-log.txt
+pip-delete-this-directory.txt
+local_settings.py
+celerybeat-schedule
+celerybeat.pid
+htmlcov/
+
+# фронт
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.vscode/
+/frontend/.DS_Store
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/pnpm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+
+
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

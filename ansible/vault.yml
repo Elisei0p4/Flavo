@@ -1,0 +1,10 @@
+# Секреты для продакшена
+vault_secret_key: "your-super-secret-key-here" # тут тоже можно впринципе вставить ключи, но слишком запарно хзхз. Мб попозже попотею над реализацией
+vault_postgres_password: "your-postgres-password-here"
+vault_rabbitmq_password: "your-rabbitmq-password-here"
+vault_stripe_secret_key: "sk_live_your-stripe-secret-key-here"
+vault_stripe_webhook_secret: "whsec_your-webhook-secret-here"
+
+# Дополнительные секреты
+vault_sentry_dsn: "https://your-sentry-dsn@sentry.io/project-id"
+vault_github_token: "ghp_your-github-token-here"

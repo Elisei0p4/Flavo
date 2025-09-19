@@ -1,0 +1,71 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{ts,tsx,js,jsx}"
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'main-dark': '#211e1e',
+        'main-light': '#f3e9d2',
+        'accent-gold': '#b5924f',
+        'text-dark': '#3c3c3c',
+        'text-light': '#f3e9d2',
+        'secondary-gold': '#d4a74d',
+        'hover-gold': '#e0c18d',
+        'red-error': '#a12d2d',
+        'dark-card': '#2a2a2a',
+        'parchment': '#f3e9d2',
+        'golden-accent': '#b5924f',
+        'subtle-gray': '#a0a0a0',
+        'deep-black': '#000000',
+      },
+      fontFamily: {
+        'display': ['"IM Fell English"', 'serif'],
+        'heading': ['Gabriela', 'serif'],
+        'body': ['Cormorant Garamond', 'serif'],
+        'sans': ['Inter', 'sans-serif'],
+      },
+      backgroundImage: {
+        'noise': "url('/noise.svg')",
+        'menu-background': "url('/background.png')",
+        'dark-engraving': "url('/dark-engraving-bg.png')",
+        'light-engraving': "url('/light-engraving-bg.png')",
+        'dark-map-bg': "url('/dark-map-bg.png')",
+        'auth-background': "url('/auth-background.png')",
+        'why-us-decor-bottom': "url('/why-us-decor-bottom.jpg')",
+        'what-we-learn-bg': "url('/background_my_1_comp.jpg')", 
+        'cooking-pot-decor': "url('/bg-cooking-pot.jpg')",
+        'chef-decor': "url('/bg-chef.jpg')",
+        'parchment-texture-bg': "url('/parchment-texture-bg.webp')",
+        'full-parchment-bg': "url('/full-parchment-bg.png')",
+        'faq-background-image': "url('/new_bg_2_candle_make.jpg')",
+        'reviews-background-image': "url('/dark-engraving-v2.jpg')",
+        'faq-reviews-divider': "url('/delitel.png')",
+        'faq-reviews-combined-bg': "url('/ыыы.png')",
+        'recipes-background': "url('/recipes-background.jpg')",
+      },
+      boxShadow: {
+        'inner-dark': 'inset 0 0 10px rgba(0,0,0,0.5)',
+        'card-shadow': '0 4px 8px rgba(0,0,0,0.2)',
+        'golden-glow': '0 0 15px rgba(181, 146, 79, 0.6)',
+      },
+      keyframes: {
+        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+        slideInDown: { '0%': { transform: 'translateY(-20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+        bounceArrow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(10px)' } },
+        pulseGold: { '0%, 100%': { borderColor: 'rgba(181, 146, 79, 0.4)' }, '50%': { borderColor: 'rgba(181, 146, 79, 1)' } },
+        blinkingCursor: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-out forwards',
+        slideInDown: 'slideInDown 0.7s ease-out forwards',
+        bounceArrow: 'bounceArrow 2s infinite',
+        pulseGold: 'pulseGold 2s infinite ease-in-out',
+        blinkingCursor: 'blinkingCursor 0.7s step-end infinite',
+      },
+    },
+  },
+  plugins: [],
+};

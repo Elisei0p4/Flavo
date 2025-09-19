@@ -1,0 +1,62 @@
+[
+{
+  "model": "orders.promocode",
+  "pk": 1,
+  "fields": {
+    "code": "PROMO000",
+    "discount_percent": 27,
+    "valid_from": "2025-08-30T14:42:41.863Z",
+    "valid_to": "2025-10-30T14:42:41.863Z",
+    "is_active": true,
+    "stripe_coupon_id": "coupon_0"
+  }
+},
+{
+  "model": "orders.promocode",
+  "pk": 2,
+  "fields": {
+    "code": "PROMO001",
+    "discount_percent": 32,
+    "valid_from": "2025-08-21T14:42:41.869Z",
+    "valid_to": "2025-11-06T14:42:41.869Z",
+    "is_active": true,
+    "stripe_coupon_id": "coupon_1"
+  }
+},
+{
+  "model": "orders.promocode",
+  "pk": 3,
+  "fields": {
+    "code": "PROMO002",
+    "discount_percent": 18,
+    "valid_from": "2025-08-29T14:42:41.872Z",
+    "valid_to": "2025-10-06T14:42:41.872Z",
+    "is_active": true,
+    "stripe_coupon_id": "coupon_2"
+  }
+},
+{
+  "model": "orders.promocode",
+  "pk": 4,
+  "fields": {
+    "code": "PROMO003",
+    "discount_percent": 29,
+    "valid_from": "2025-09-06T14:42:41.875Z",
+    "valid_to": "2025-10-25T14:42:41.875Z",
+    "is_active": true,
+    "stripe_coupon_id": "coupon_3"
+  }
+},
+{
+  "model": "orders.promocode",
+  "pk": 5,
+  "fields": {
+    "code": "PROMO004",
+    "discount_percent": 46,
+    "valid_from": "2025-09-02T14:42:41.878Z",
+    "valid_to": "2025-11-17T14:42:41.878Z",
+    "is_active": true,
+    "stripe_coupon_id": "coupon_4"
+  }
+}
+]

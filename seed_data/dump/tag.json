@@ -1,0 +1,18 @@
+[
+{
+  "model": "products.tag",
+  "pk": 80,
+  "fields": {
+    "name": "Лето, солнце и пицца!",
+    "slug": "leto-solnce-i-picca"
+  }
+},
+{
+  "model": "products.tag",
+  "pk": 81,
+  "fields": {
+    "name": "Дождливая еда",
+    "slug": "dozhdlivaya-eda"
+  }
+}
+]
