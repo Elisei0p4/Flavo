@@ -8,7 +8,7 @@ FLAVO — это полнофункциональное веб-приложен�
 Представляем вашему вниманию скриншоты основных экранов и функционала приложения:
 
 <p align="center">
-  <img src="https://sun9-49.userapi.com/s/v1/if2/f9-b9PPambBcF3_gwj-zF3gtCZziqmEI3QicD6shcZNhSHDhSgU4ud_7KU3U6k77BZux6QnQLc-y75CTtRVuXyvQ.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,1920x1080&from=bu&cs=1920x0" alt="Главная страница FLAVO" width="700"/>
+  <img src="https://i.postimg.cc/c49m2FyG/image.png" alt="Главная страница FLAVO" width="700"/>
   <br>
   <em>Главная страница: витрина изысканных блюд и спецпредложений.</em>
 </p>
@@ -20,19 +20,19 @@ FLAVO — это полнофункциональное веб-приложен�
 </p>
 
 <p align="center">
-  <img src="[docs/screenshots/screenshot_3_product_detail.png](https://sun9-1.userapi.com/s/v1/if2/7Zf3IxPmma4196Nfu4-TadX8aVYf_WTUxcjHp96KrInqNr0s7tQodWwEiuh-mPe1oKxreLXNX1eVWl07gS5cLNEx.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,1920x1080&from=bu&cs=1920x0)" alt="Ответы на вопросы" width="700"/>
+  <img src="https://i.postimg.cc/3Jdp476z/image.png" alt="Ответы на вопросы" width="700"/>
   <br>
   <em>Часто задаваемые вопросы для нас</em>
 </p>
 
 <p align="center">
-  <img src="[docs/screenshots/screenshot_4_cart_checkout.png](https://sun9-2.userapi.com/s/v1/if2/dZ6G5go81rpi451fKzKSf4fful5oLaRlJlohddmoDgi8COScS4vivkw2Pdg2gqWCgIGAyxggl0UKan9F5BKfkLvD.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,1920x1080&from=bu&cs=1920x0)" alt="Корзина и оформление заказа FLAVO" width="700"/>
+  <img src="https://i.postimg.cc/MH4nbM4N/image.png" alt="Корзина и оформление заказа FLAVO" width="700"/>
   <br>
   <em>Корзина и оформление заказа: удобный процесс покупки с применением промокодов.</em>
 </p>
 
 <p align="center">
-  <img src="[docs/screenshots/screenshot_5_recipes.png](https://sun9-33.userapi.com/s/v1/if2/k0aTfo-TKHtt9RbGcTs_iTAjoEvhi8ieAsei3A1P5MirAa5iJaE0G-7jDEqOw5lYzNOavdN9zCiyYpwSoa4Bb3YR.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,1920x1080&from=bu&cs=1920x0)" alt="Страница "модерации"" width="700"/>
+  <img src="https://i.postimg.cc/MKQHJGgZ/image.png" alt="Страница "модерации"" width="700"/>
   <br>
   <em>Страница для модерации.</em>
 </p>
