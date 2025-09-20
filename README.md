@@ -14,7 +14,7 @@ FLAVO — это полнофункциональное веб-приложен�
 </p>
 
 <p align="center">
-  <img src="[docs/screenshots/screenshot_2_menu_page.png](https://sun9-82.userapi.com/s/v1/if2/_jM2m0Kibb308Ho7Sxb1y6t-PI992XNt-HDan7tWrePCyRYsLSn1619lM9EbiGBRJwSy-blzEzUlemyzaa1ING8t.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,1920x1080&from=bu&cs=1920x0)" alt="Блок "почему мы?" width="700"/>
+  <img src="https://i.postimg.cc/NMk8447V/image.png" alt="Блок "почему мы?" width="700"/>
   <br>
   <em>Блок "Почему выбирают нас?": Интригующие вопросы, почему Вам следуюет пользоваться нашим проектом.</em>
 </p>
